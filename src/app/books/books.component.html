@@ -1,0 +1,18 @@
+<p>Books: {{ booksStore.books() }}</p>
+<p>Is Loading: {{ booksStore.isLoading() }}</p>
+<p>Filter: {{ booksStore.filter() }}</p>
+<p>Query: {{ booksStore.filter.query() }}</p>
+<p>Order: {{ booksStore.filter.order() }}</p>
+
+<app-books-filter [query]="booksStore.filter.query()"
+                  [order]="booksStore.filter.order()"
+                  (queryChange)="booksStore.updateQuery($event)"
+                  (orderChange)="booksStore.updateOrder($event)">
+</app-books-filter>
+
+<p>Ordered books: {{ booksStore.sortedBooks() }}</p>
+
+<mat-slide-toggle (change)="logFirst($event)">Slide me!</mat-slide-toggle>
+<br />
+<mat-slide-toggle [checked]="true"
+                  (change)="logSecond($event)">I'm ON initially</mat-slide-toggle>

@@ -1,0 +1,19 @@
+<form class="filter-form"
+      [formGroup]="filterForm">
+  <mat-form-field class="w-full">
+    <mat-label>Query</mat-label>
+    <input type="text"
+           matInput
+           [formControlName]="'query'"
+           placeholder="Type query">
+  </mat-form-field>
+  <mat-form-field class="w-full">
+    <mat-label>Order</mat-label>
+    <mat-select [formControlName]="'order'"
+                name="order">
+      @for (orderItem of orderItems; track order) {
+      <mat-option [value]="orderItem.value">{{orderItem.label}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+</form>
